@@ -55,13 +55,17 @@ function getAllMovieTitles(movies) {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating(movies) {
+function checkIfAnyMovieHasRating(movies, [rating="G"]) {
   if(movies.length === 0){
     throw "Error: Must include movie title."
   }
-  return movies.some((movie) => {
-    movies === movie.rated
-  })
+
+  const movieRating = movies.some((char) => char.rated === rating)
+return movieRating
+
+  // return movies.some((movie) => {
+  //   movie.rated === rating
+  // })
 }
 
 /**
