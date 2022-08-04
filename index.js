@@ -84,7 +84,24 @@ return movieRating
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  if(movies.length === 0){
+    throw "Error!"
+  }
+  let movieObj = null
+
+  for(let movie of movies){
+    
+  }
+
+  // if(id !== movies){
+  //   return movieObj
+  // }
+
+  // return movies.find((movie) => movie)
+
+  return movieObj
+}
 
 /**
  * filterByGenre()
@@ -108,7 +125,28 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+
+    // the inputtedGenre needs to match one of the existing genres in the array
+    // inputs are case-sensitive
+
+function filterByGenre(movies, genre) {
+  if(movies.length === 0){
+    throw "Error!"
+  }
+  let inputtedGenre = []
+
+  for(let movie of movies){
+
+    let lowerCaseGenres = movie.genre.toLowerCase()
+    let lowerCase = genre.toLocaleLowerCase()
+    // let upperCaseGenres = movie.genres.toUpperCase()
+
+    if(lowerCaseGenres.includes(lowerCase)){
+      inputtedGenre.push(movie)
+    }
+  }
+  return inputtedGenre
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
