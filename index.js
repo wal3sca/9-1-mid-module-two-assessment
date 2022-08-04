@@ -59,10 +59,11 @@ function checkIfAnyMovieHasRating(movies, [rating="G"]) {
   if(movies.length === 0){
     throw "Error: Must include movie title."
   }
-
   const movieRating = movies.some((char) => char.rated === rating)
-return movieRating
-
+  // if(movies.rated.length === 0){
+  //   return "G"
+  // }
+  return movieRating
   // return movies.some((movie) => {
   //   movie.rated === rating
   // })
@@ -92,10 +93,10 @@ function findById(movies, id) {
   if(movies.length === 0){
     throw "Error!"
   }
-  let movieObj = null
-  if(movies.id === 0){
-    return movieObj
-  }
+  // let movieObj = null
+  // if(movies.id === 0){
+  //   return movieObj
+  // }
   const random = movies.find((movie) => movie.imdbID === id)
   return random || null
 }
@@ -207,6 +208,8 @@ function checkMinMetascores(movies, metascore) {
   if(movies.length === 0){
     throw "Error!"
   }
+
+  return movies.every((movie) => movie.metascore > 60 || false)
   
 }
 
@@ -238,7 +241,13 @@ function getRottenTomatoesScoreByMovie(movies) {
   if(movies.length === 0){
     throw "Error!"
   }
+  movies.find((movie) => movie.title === movie.album )
 
+  const kick = movies.map((movie) => {
+    let obj = {}
+    return obj = {[movie.title] : movie.metascore}
+  }) 
+  return kick
 }
 
 // Do not change anything below this line.
