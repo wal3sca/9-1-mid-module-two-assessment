@@ -31,7 +31,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  if(movies === 0){
+  if(movies.length === 0){
     throw "Error: Needs a movie title."
   }
   return movies.map((movie) => movie.title )
@@ -55,7 +55,14 @@ function getAllMovieTitles(movies) {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+function checkIfAnyMovieHasRating(movies) {
+  if(movies.length === 0){
+    throw "Error: Must include movie title."
+  }
+  return movies.some((movie) => {
+    movies === movie.rated
+  })
+}
 
 /**
  * findById()
